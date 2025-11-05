@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colégio Dom Pedro - Razões e Proporções Interativas</title>
+
+<!-- Google Fonts e ícones -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a2e0e9a3d2.js" crossorigin="anonymous"></script>
+
+<style>
+:root {
+  --azul: #0b3d91;
+  --verde: #009e60;
+  --amarelo: #ffd700;
+  --branco: #ffffff;
+  --fundo: #001f3f;
+  --card: #012a5b;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, var(--azul) 0%, var(--fundo) 100%);
+  color: var(--branco);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 30px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 2.3em;
+  color: var(--amarelo);
+  margin-bottom: 8px;
+}
+header h2 {
+  color: var(--verde);
+  margin-top: 0;
+  font-weight: 600;
+}
+header p {
+  font-size: 1.1em;
+  color: #dfefff;
+  max-width: 600px;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  gap: 25px;
+}
+
+.card {
+  background-color: var(--card);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  padding: 25px;
+  width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border: 2px solid var(--amarelo);
+  box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+}
+
+.card h2 {
+  color: var(--amarelo);
+  font-size: 1.3em;
+}
+
+.card label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 4px;
+  background-color: #023569;
+  color: white;
+  font-size: 1em;
+}
+
+.resultado {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--verde);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background-color: rgba(0,0,0,0.3);
+  color: #dbeafe;
+}
+
+footer span {
+  color: var(--amarelo);
+}
+
+/* 🌐 RESPONSIVIDADE */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.9em;
+  }
+  header p {
+    font-size: 1em;
+  }
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
+  .card h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 30px 10px;
+  }
+  header h1 {
+    font-size: 1.6em;
+  }
+  header h2 {
+    font-size: 1em;
+  }
+  .container {
+    padding: 15px;
+    gap: 15px;
+  }
+  .card {
+    width: 100%;
+    padding: 18px;
+  }
+  .resultado {
+    font-size: 1em;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1><i class="fas fa-calculator"></i> Colégio Dom Pedro</h1>
+  <h2>Feira Cultural de Matemática e Tecnologia</h2>
+  <p>Explore o mundo das <strong>Razões e Proporções</strong> em situações divertidas e do dia a dia!</p>
+</header>
+
+<div class="container">
+
+  <!-- LANCHONETE -->
+  <div class="card">
+    <h2><i class="fas fa-hamburger"></i> Lanche na cantina</h2>
+    <label>Preço do lanche (R$): <input type="number" id="lanchePreco" value="8" step="0.5"></label>
+    <label>Número de lanches: <input type="number" id="lancheQtde" value="3"></label>
+    <div class="resultado" id="res1">Total: R$ 24.00</div>
+  </div>
+
+  <!-- REDE SOCIAL -->
+  <div class="card">
+    <h2><i class="fas fa-share-alt"></i> Engajamento nas redes</h2>
+    <label>Número de curtidas: <input type="number" id="curtidas" value="150"></label>
+    <label>Número de postagens: <input type="number" id="posts" value="10"></label>
+    <div class="resultado" id="res2">Média: 15 curtidas por postagem</div>
+  </div>
+
+  <!-- VIAGEM -->
+  <div class="card">
+    <h2><i class="fas fa-bus"></i> Viagem de excursão</h2>
+    <label>Distância (km): <input type="number" id="dist" value="300"></label>
+    <label>Tempo (h): <input type="number" id="tempo" value="5"></label>
+    <div class="resultado" id="res3">Velocidade média: 60 km/h</div>
+  </div>
+
+  <!-- SUCO -->
+  <div class="card">
+    <h2><i class="fas fa-wine-glass-alt"></i> Misturando suco</h2>
+    <label>Partes de pó: <input type="number" id="po" value="1"></label>
+    <label>Partes de água por 1 de pó: <input type="number" id="agua" value="5"></label>
+    <label>Pó usado (partes): <input type="number" id="poUsado" value="3"></label>
+    <div class="resultado" id="res4">Necessário: 15 partes de água</div>
+  </div>
+
+  <!-- JOGOS -->
+  <div class="card">
+    <h2><i class="fas fa-gamepad"></i> Pontuação nos jogos</h2>
+    <label>Pontos marcados: <input type="number" id="pontos" value="240"></label>
+    <label>Partidas jogadas: <input type="number" id="partidas" value="8"></label>
+    <div class="resultado" id="res5">Média: 30 pontos por partida</div>
+  </div>
+
+  <!-- MÚSICA -->
+  <div class="card">
+    <h2><i class="fas fa-music"></i> Volume e intensidade</h2>
+    <label>Volume base (0–100): <input type="number" id="volume" value="50"></label>
+    <label>Fator de aumento (%): <input type="number" id="fator" value="20"></label>
+    <div class="resultado" id="res6">Novo volume: 60</div>
+  </div>
+
+  <!-- TURMA -->
+  <div class="card">
+    <h2><i class="fas fa-users"></i> Meninos e meninas</h2>
+    <label>Total de alunos: <input type="number" id="total" value="28"></label>
+    <label>Meninas: <input type="number" id="meninas" value="12"></label>
+    <div class="resultado" id="res7">Razão meninas:meninos = 12:16</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><span>Colégio Dom Pedro</span> — Feira Cultural 2025 | Matemática e Tecnologia 💡</p>
+</footer>
+
+<script>
+function atualizar() {
+  // 1. Lanche
+  let preco = parseFloat(document.getElementById("lanchePreco").value);
+  let qtde = parseFloat(document.getElementById("lancheQtde").value);
+  document.getElementById("res1").innerText = `Total: R$ ${(preco * qtde).toFixed(2)}`;
+
+  // 2. Redes sociais
+  let curtidas = parseFloat(document.getElementById("curtidas").value);
+  let posts = parseFloat(document.getElementById("posts").value);
+  document.getElementById("res2").innerText = `Média: ${(curtidas/posts).toFixed(1)} curtidas por postagem`;
+
+  // 3. Viagem
+  let dist = parseFloat(document.getElementById("dist").value);
+  let tempo = parseFloat(document.getElementById("tempo").value);
+  document.getElementById("res3").innerText = `Velocidade média: ${(dist/tempo).toFixed(1)} km/h`;
+
+  // 4. Suco
+  let po = parseFloat(document.getElementById("po").value);
+  let agua = parseFloat(document.getElementById("agua").value);
+  let poUsado = parseFloat(document.getElementById("poUsado").value);
+  document.getElementById("res4").innerText = `Necessário: ${(agua * poUsado / po).toFixed(1)} partes de água`;
+
+  // 5. Jogos
+  let pontos = parseFloat(document.getElementById("pontos").value);
+  let partidas = parseFloat(document.getElementById("partidas").value);
+  document.getElementById("res5").innerText = `Média: ${(pontos/partidas).toFixed(1)} pontos por partida`;
+
+  // 6. Música
+  let volume = parseFloat(document.getElementById("volume").value);
+  let fator = parseFloat(document.getElementById("fator").value);
+  document.getElementById("res6").innerText = `Novo volume: ${(volume * (1 + fator/100)).toFixed(1)}`;
+
+  // 7. Turma
+  let total = parseFloat(document.getElementById("total").value);
+  let meninas = parseFloat(document.getElementById("meninas").value);
+  let meninos = total - meninas;
+  document.getElementById("res7").innerText = `Razão meninas:meninos = ${meninas}:${meninos}`;
+}
+
+document.querySelectorAll("input").forEach(input => input.addEventListener("input", atualizar));
+atualizar();
+</script>
+
+</body>
+</html>
